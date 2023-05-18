@@ -1,8 +1,8 @@
 import { Suspense, lazy } from "react";
 import { RouteObject } from "react-router-dom";
+import { Header } from "ui";
 import Home from "../components/Home";
 
-const Profile = lazy(() => import("../components/remotes/Profile"));
 const Shop = lazy(() => import("../components/remotes/Shop"));
 const Cart = lazy(() => import("../components/remotes/Cart"));
 
@@ -11,6 +11,7 @@ export const routes: RouteObject[] = [
     path: "/",
     element: (
       <>
+        <Header text="Header" />
         <Home />
         <Cart />
       </>
@@ -19,20 +20,14 @@ export const routes: RouteObject[] = [
   {
     path: "/shop",
     element: (
-      <Suspense fallback="loading shop...">
-        <Shop />
-        <Cart />
-      </Suspense>
+      <>
+        <Header text="Header" />
+        <Suspense fallback="loading shop...">
+          <Shop />
+          <Cart />
+        </Suspense>
+      </>
     ),
-    errorElement: <h1>"Error loading Component"</h1>,
-  },
-  {
-    path: "/profile",
-    element: (
-      <Suspense fallback="loading profile...">
-        <Profile />
-        <Cart />
-      </Suspense>
-    ),
+    errorElement: <h1>"Error loading Shop Remote"</h1>,
   },
 ];

@@ -15,10 +15,10 @@ export default defineConfig({
     }),
   ],
   server: {
-    port: 8082,
+    port: 8081,
   },
   preview: {
     host: "localhost",
-    port: 8082,
+    port: 8081,
   },
 });

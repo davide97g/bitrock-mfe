@@ -18,10 +18,10 @@ export default defineConfig({
     }),
   ],
   server: {
-    port: 8083,
+    port: 8082,
   },
   preview: {
     host: "localhost",
-    port: 8083,
+    port: 8082,
   },
 });
