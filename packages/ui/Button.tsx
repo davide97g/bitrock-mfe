@@ -1,3 +1,5 @@
-export const Button = () => {
-  return <button onClick={() => console.info("boop")}>Boop 2</button>;
+import { Button, ButtonProps } from "@mui/material";
+
+export const MyButton = ({ children, ...props }: ButtonProps) => {
+  return <Button {...props}>{children}</Button>;
 };

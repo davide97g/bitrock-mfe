@@ -1,11 +1,11 @@
-import { Button, Header } from "ui";
+import { MyButton, Header } from "ui";
 
 export default function Shop() {
   return (
     <div>
       <h2>Shop</h2>
       <Header text="test" />
-      <Button />
+      <MyButton> Add to Cart </MyButton>
     </div>
   );
 }

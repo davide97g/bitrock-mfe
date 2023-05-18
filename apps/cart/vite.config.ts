@@ -11,7 +11,7 @@ export default defineConfig({
       exposes: {
         "./App": "./src/bootstrap",
       },
-      shared: ["vue"],
+      shared: [],
     }),
   ],
   server: {
