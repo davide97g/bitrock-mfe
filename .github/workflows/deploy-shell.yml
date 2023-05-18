@@ -21,14 +21,11 @@ jobs:
           node-version: 18
           cache: "yarn"
 
-      - name: Change dir
-        run: cd apps/shell
-
       - name: Install
-        run: yarn
+        run: cd apps/shell && yarn
 
       - name: Build
-        run: yarn build
+        run: cd apps/shell && yarn build
 
       - name: Deploy Shell
         uses: FirebaseExtended/action-hosting-deploy@v0
