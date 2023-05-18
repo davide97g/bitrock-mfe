@@ -4,7 +4,6 @@ import Home from "../components/Home";
 import Header from "../components/Header";
 
 const Shop = lazy(() => import("../components/remotes/Shop"));
-const Cart = lazy(() => import("../components/remotes/Cart"));
 
 export const routes: RouteObject[] = [
   {
@@ -13,7 +12,6 @@ export const routes: RouteObject[] = [
       <>
         <Header />
         <Home />
-        <Cart />
       </>
     ),
     errorElement: <h1>Error loading Componet</h1>,
@@ -25,7 +23,6 @@ export const routes: RouteObject[] = [
         <Header />
         <Suspense fallback="loading shop...">
           <Shop />
-          <Cart />
         </Suspense>
       </>
     ),

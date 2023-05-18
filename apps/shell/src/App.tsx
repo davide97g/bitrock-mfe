@@ -1,5 +1,7 @@
 import { ThemeProvider, theme } from "ui";
 import { Router } from "./routing/router";
+import { Suspense, lazy } from "react";
+const Cart = lazy(() => import("./components/remotes/Cart"));
 
 function App() {
   return (
@@ -12,6 +14,9 @@ function App() {
     >
       <ThemeProvider theme={theme}>
         <Router />
+        <Suspense fallback="loading cart...">
+          <Cart />
+        </Suspense>
       </ThemeProvider>
     </div>
   );
