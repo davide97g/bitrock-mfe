@@ -4,7 +4,7 @@ import Shop from "../components/Shop";
 
 export const routes = [
   {
-    path: "/shop",
+    path: "/",
     element: (
       <NavigationManager>
         <Outlet />
@@ -12,7 +12,11 @@ export const routes = [
     ),
     children: [
       {
-        index: true,
+        path: "/",
+        element: <Shop />,
+      },
+      {
+        path: "/shop",
         element: <Shop />,
       },
     ],
