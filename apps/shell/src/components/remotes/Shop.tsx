@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
-import { mount } from "cart/App";
+import { mount } from "shop/App";
 import { useLocation, useNavigate } from "react-router-dom";
 
-function CartApp() {
+function ShopApp() {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -41,7 +41,7 @@ function CartApp() {
     isFirstRunRef.current = false;
   }, []);
 
-  return <div style={{ height: "100%" }} ref={wrapperRef} id="cart-mfe" />;
+  return <div style={{ height: "100%" }} ref={wrapperRef} id="shop-mfe" />;
 }
 
-export default CartApp;
+export default ShopApp;

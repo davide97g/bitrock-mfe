@@ -1,17 +1,8 @@
-import { Suspense, lazy } from "react";
+import { Router } from "./routing/router";
 import "./App.css";
 
 function App() {
-  const Cart = lazy(() => import("./components/remotes/Cart"));
-
-  return (
-    <>
-      <h1>Shell</h1>
-      <Suspense fallback="Loading Cart">
-        <Cart />
-      </Suspense>
-    </>
-  );
+  return <Router />;
 }
 
 export default App;
