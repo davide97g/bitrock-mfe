@@ -1,5 +1,3 @@
-import "./App.css";
-
 function App() {
   return <h2>Cart</h2>;
 }
