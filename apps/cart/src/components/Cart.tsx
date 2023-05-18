@@ -1,24 +1,24 @@
+import { useEffect, useState } from "react";
+
+interface Item {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+}
+
 export default function Cart() {
-  const items = [
-    {
-      id: 1,
-      name: "Item 1",
-      price: 100,
-      quantity: 1,
-    },
-    {
-      id: 2,
-      name: "Item 2",
-      price: 200,
-      quantity: 2,
-    },
-    {
-      id: 3,
-      name: "Item 3",
-      price: 300,
-      quantity: 3,
-    },
-  ];
+  const [items, setItems] = useState<Item[]>([]);
+
+  useEffect(() => {
+    const handleEventAddToCart = (e: Event) => {
+      const item = (e as CustomEvent<{ item: Item }>).detail.item;
+      console.log(item);
+      setItems((prev) => [...prev, item]);
+    };
+    window.addEventListener("cart:add", handleEventAddToCart, {});
+    return () => window.removeEventListener("cart:add", handleEventAddToCart);
+  }, []);
 
   return (
     <>

@@ -1,7 +1,7 @@
 import { Suspense, lazy } from "react";
 import { RouteObject } from "react-router-dom";
-import { Header } from "ui";
 import Home from "../components/Home";
+import Header from "../components/Header";
 
 const Shop = lazy(() => import("../components/remotes/Shop"));
 const Cart = lazy(() => import("../components/remotes/Cart"));
@@ -11,7 +11,7 @@ export const routes: RouteObject[] = [
     path: "/",
     element: (
       <>
-        <Header text="Header" />
+        <Header />
         <Home />
         <Cart />
       </>
@@ -21,7 +21,7 @@ export const routes: RouteObject[] = [
     path: "/shop",
     element: (
       <>
-        <Header text="Header" />
+        <Header />
         <Suspense fallback="loading shop...">
           <Shop />
           <Cart />
