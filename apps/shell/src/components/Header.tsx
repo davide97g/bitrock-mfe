@@ -16,7 +16,11 @@ export default function Header() {
       <MyButton variant="contained" onClick={() => navigate("/")}>
         Home
       </MyButton>
-      <MyButton variant="outlined" onClick={() => navigate("/shop")}>
+      <MyButton
+        variant="contained"
+        color="secondary"
+        onClick={() => navigate("/shop")}
+      >
         Shop
       </MyButton>
     </div>

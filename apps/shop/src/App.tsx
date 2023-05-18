@@ -3,9 +3,16 @@ import { ThemeProvider, theme } from "ui";
 
 function App({ router }: RouterProviderProps) {
   return (
-    <ThemeProvider theme={theme}>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <div
+      style={{
+        border: "5px dashed lightblue",
+        padding: "1rem",
+      }}
+    >
+      <ThemeProvider theme={theme}>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </div>
   );
 }
 

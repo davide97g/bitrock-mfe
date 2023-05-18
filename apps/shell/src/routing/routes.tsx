@@ -16,6 +16,7 @@ export const routes: RouteObject[] = [
         <Cart />
       </>
     ),
+    errorElement: <h1>Error loading Componet</h1>,
   },
   {
     path: "/shop",
@@ -28,6 +29,6 @@ export const routes: RouteObject[] = [
         </Suspense>
       </>
     ),
-    errorElement: <h1>"Error loading Shop Remote"</h1>,
+    errorElement: <h1>Error loading Shop Remote</h1>,
   },
 ];

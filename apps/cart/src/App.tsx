@@ -2,9 +2,16 @@ import { ThemeProvider, theme } from "ui";
 import Cart from "./components/Cart";
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <Cart />
-    </ThemeProvider>
+    <div
+      style={{
+        border: "5px dashed green",
+        padding: "1rem",
+      }}
+    >
+      <ThemeProvider theme={theme}>
+        <Cart />
+      </ThemeProvider>
+    </div>
   );
 }
 
