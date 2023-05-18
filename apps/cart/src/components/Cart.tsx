@@ -8,16 +8,15 @@ export default function Cart() {
   useEffect(() => {
     const handleEventAddToCart = (e: Event) => {
       const item = (e as CustomEvent<{ item: CartItem }>).detail.item;
-      console.log(item);
-      const savedItem = items.find((i) => i.id === item.id);
-      if (savedItem) {
-        savedItem.quantity++;
+      const itemIndex = items.findIndex((i) => i.id === item.id);
+      if (itemIndex >= 0) {
+        items[itemIndex].quantity += 1;
         setItems([...items]);
-      } else setItems([...items, item]);
+      } else setItems((prev) => [...prev, item]);
     };
-    window.addEventListener("cart:add", handleEventAddToCart, {});
+    window.addEventListener("cart:add", handleEventAddToCart);
     return () => window.removeEventListener("cart:add", handleEventAddToCart);
-  }, []);
+  }, [items]);
 
   const removeFromCart = (itemId: string) =>
     setItems(items.filter((item) => item.id !== itemId));

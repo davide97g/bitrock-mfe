@@ -34,10 +34,10 @@ export const CartItemCard = ({
           {title}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          x {quantity}
+          Quantity: {quantity}
         </Typography>
         <Typography variant="body1" color="text.primary">
-          {price} $
+          Price: {price} $
         </Typography>
       </CardContent>
       <CardActions>
@@ -51,6 +51,7 @@ export const CartItemCard = ({
         <MyButton
           size="small"
           color="warning"
+          disabled={quantity === 1}
           onClick={() => changeQuantity(itemId, quantity - 1)}
         >
           - 1
