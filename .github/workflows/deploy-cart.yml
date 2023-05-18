@@ -21,14 +21,11 @@ jobs:
           node-version: 18
           cache: "yarn"
 
-      - name: Change dir
-        run: cd apps/cart
-
       - name: Install
-        run: yarn
+        run: cd apps/cart && yarn
 
       - name: Build
-        run: yarn build
+        run: cd apps/cart && yarn build
 
       - name: Deploy Cart
         uses: FirebaseExtended/action-hosting-deploy@v0
