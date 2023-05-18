@@ -12,7 +12,7 @@ export default defineConfig({
         cart: "http://localhost:8082/assets/remoteEntry.js",
         shop: "http://localhost:8083/assets/remoteEntry.js",
       },
-      shared: ["vue"],
+      shared: [],
     }),
   ],
   server: {
