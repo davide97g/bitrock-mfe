@@ -7,10 +7,10 @@ function CartApp() {
   const isFirstRunRef = useRef(true);
   const unmountRef = useRef(() => {});
 
+  // ? only mount the remote cart app once
   useEffect(() => {
-    if (!isFirstRunRef.current) {
-      return;
-    }
+    if (!isFirstRunRef.current) return;
+
     unmountRef.current = mount({
       mountPoint: wrapperRef.current!,
       initialPathname: location.pathname,

@@ -7,18 +7,24 @@ function ShopApp() {
   const navigate = useNavigate();
   const location = useLocation();
 
+  // *** EVENT LISTENER ***
   useEffect(() => {
     const handleEvent = (e: Event) => {
       const newPathname = (e as CustomEvent<string>).detail;
       if (newPathname === location.pathname) return;
       navigate(newPathname);
     };
+    // ? listen for "NAVIGATE_REMOTE_EVENT" event (remote event) : the remote requests a navigation
     window.addEventListener("NAVIGATE_REMOTE_EVENT", handleEvent, {});
+
+    // return a cleanup function
     return () =>
       window.removeEventListener("NAVIGATE_REMOTE_EVENT", handleEvent);
   }, [location.pathname, navigate]);
 
+  // *** EVENT SENDER ***
   useEffect(() => {
+    // ? notify the remotes that the shell has navigated (shell event)
     window.dispatchEvent(
       new CustomEvent<string>("NAVIGATE_APPSHELL_EVENT", {
         detail: location.pathname,
