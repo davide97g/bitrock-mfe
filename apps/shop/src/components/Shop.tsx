@@ -7,6 +7,7 @@ export default function Shop() {
     if (!item) return;
 
     // *** SEND EVENT ***
+    console.log("[shop] --> SEND [cart:add]");
     window.dispatchEvent(
       new CustomEvent("cart:add", {
         detail: {

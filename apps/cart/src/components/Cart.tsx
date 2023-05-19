@@ -9,6 +9,7 @@ export default function Cart() {
 
   useEffect(() => {
     const handleEventAddToCart = (e: Event) => {
+      console.log("[cart] --> RECEIVED [cart:add]");
       const item = (e as CustomEvent<{ item: Item }>).detail.item;
       const itemIndex = items.findIndex((i) => i.id === item.id);
       if (itemIndex >= 0) {

@@ -18,19 +18,18 @@ export function NavigationManager({ children }: NavigationManagerProps) {
         return;
       navigate(pathname);
     };
-    // ? listen for "NAVIGATE_APPSHELL_EVENT" event (shell event) : the shell requests a navigation
-    window.addEventListener("NAVIGATE_APPSHELL_EVENT", handleEvent);
+    // ? listen for "navigate:shell" event (shell event) : the shell requests a navigation
+    window.addEventListener("navigate:shell", handleEvent);
 
     // return a cleanup function
-    return () =>
-      window.removeEventListener("NAVIGATE_APPSHELL_EVENT", handleEvent);
+    return () => window.removeEventListener("navigate:shell", handleEvent);
   }, [location, navigate]);
 
   // *** EVENT SENDER ***
   useEffect(() => {
     // ? notify the shell about the current pathname (remote event)
     window.dispatchEvent(
-      new CustomEvent("NAVIGATE_REMOTE_EVENT", {
+      new CustomEvent("navigate:remote", {
         detail: location.pathname,
       })
     );
